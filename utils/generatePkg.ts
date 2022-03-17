@@ -1,4 +1,4 @@
-import fs from 'fs'
+import { readFileSync } from 'fs'
 
 interface OptionsType {
   name: string
@@ -7,7 +7,7 @@ interface OptionsType {
 }
 
 function generatePkg (pkgPath: string, options: OptionsType): string {
-  const data =  fs.readFileSync(pkgPath, 'utf-8')
+  const data = readFileSync(pkgPath, 'utf-8')
   let parseData: any = JSON.parse(data)
   parseData.name = options.name
   parseData.author = options.author

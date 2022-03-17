@@ -1,14 +1,12 @@
-#!/usr/bin/env node
+// #!/usr/bin/env node
 import { Command } from 'commander'
 const program = new Command()
-import createAction from '../actions/create.action.js'
-import * as fs from 'fs'
-// @ts-ignore
-import path from 'path'
+import createAction from '../actions/create.action'
+import pkg from '../package.json'
 
 program.usage('<command>')
 
-program.version('1.0.0', '-v, --version', '获取版本号')
+program.version(pkg.version, '-v, --version', '获取版本号')
 
 program
   .command('init')

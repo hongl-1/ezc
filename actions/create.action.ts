@@ -5,14 +5,14 @@ import download from 'download-git-repo'
 import chalk from 'chalk'
 import shell from 'shelljs'
 // @ts-ignore
-import fs from 'fs'
-import templateList from '../template.js'
-import path from 'path'
-import generatePkg from '../utils/generatePkg.js'
+import { writeFileSync, readdirSync } from 'fs'
+import templateList from '../src/template'
+import { resolve } from 'path'
+import generatePkg from '../utils/generatePkg'
 
 // import { log } from '../utils'
 
-const __dirname = path.resolve()
+const __dirname = resolve()
 
 let question = [
   {
@@ -61,7 +61,7 @@ export default function createAction (projectName: string, opts: any) {
     if (!repoUrl) {
       console.error('当前模板暂未开发, 敬请期待')
     } else {
-      // console.log('当前模板链接为:', repoUrl)
+      console.log('当前模板链接为:', repoUrl)
       download(repoUrl, projectName, { clone: true }, function (err: any) {
 
         if(err) {
@@ -69,21 +69,21 @@ export default function createAction (projectName: string, opts: any) {
           console.log(err)
         } else {
           spinner.succeed(chalk.green('success') + ' 下载成功')
-          // console.log('正在安装相关依赖...')
-          // shell.exec(`cd ${projectName} & yarn`)
-          // if (opts.git) {
-          //   console.log('正在初始化git仓库...')
-          //   opts.git && shell.exec(`cd ${projectName} & git init`)
-          // }
-          const files = fs.readdirSync(projectName)
+          console.log('正在安装相关依赖...')
+          shell.exec(`cd ${projectName} & yarn`)
+          if (opts.git) {
+            console.log('正在初始化git仓库...')
+            opts.git && shell.exec(`cd ${projectName} & git init`)
+          }
+          const files = readdirSync(projectName)
           console.log(chalk.green(successTips(projectName, files.includes('node_modules'))))
-          const projectPkgPath = path.resolve(__dirname, projectName, 'package.json')
+          const projectPkgPath = resolve(__dirname, projectName, 'package.json')
           const projectPkg = generatePkg(projectPkgPath, {
             name: projectName,
             author: ans.author || 'ls',
             description: ans.description || `a ${ans.templateType} template`
           })
-          fs.writeFileSync(projectPkgPath, projectPkg)
+          writeFileSync(projectPkgPath, projectPkg)
 
         }
       })
