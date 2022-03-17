@@ -1,6 +1,3 @@
-class A {
-
-}
 export default {
   'uni-app': 'direct:https://gitee.com/tianyong/we-vue.git#master',
   'react': 'direct:https://gitee.com/hongl_123/this-is-a-test-repo.git#master',

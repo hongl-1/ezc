@@ -101,7 +101,7 @@ function createAction(projectName, opts) {
 }
 
 var name = "ezc";
-var version = "1.0.2";
+var version = "1.0.3";
 var description = "";
 var bin = {
 	la: "bin/la.js"

@@ -1,9 +1,9 @@
 {
   "name": "ezc",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "bin": {
-    "la": "bin/la"
+    "la": "bin/la.js"
   },
   "type": "module",
   "scripts": {
@@ -34,10 +34,8 @@
   },
   "dependencies": {
     "chalk": "^5.0.1",
-    "clone-git-repo": "^0.0.2",
     "commander": "^9.0.0",
     "download-git-repo": "^3.0.2",
-    "electron": "^17.1.2",
     "inquirer": "^8.2.1",
     "log-symbols": "^5.1.0",
     "node-fetch": "^2.6.7",

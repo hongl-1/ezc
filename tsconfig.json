@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
     "lib": ["es2017"],
     "module": "es2020",
     "target": "es2016",
@@ -13,6 +15,4 @@
     ],
     "allowSyntheticDefaultImports": true
   },
-  "include": ["actions", "bin", "commands", "lib", "utils", "src"],
-  "exclude": ["node_modules", "e2e"]
 }

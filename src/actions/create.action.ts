@@ -6,7 +6,7 @@ import chalk from 'chalk'
 import shell from 'shelljs'
 // @ts-ignore
 import { writeFileSync, readdirSync } from 'fs'
-import templateList from '../src/template'
+import templateList from '../template'
 import { resolve } from 'path'
 import generatePkg from '../utils/generatePkg'
 

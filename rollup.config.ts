@@ -4,16 +4,13 @@ import json from '@rollup/plugin-json'
 import { terser } from 'rollup-plugin-terser'
 
 export default {
-  input: 'src/index.ts',
+  input: 'dist/index.js',
   output: {
-    file: 'index.js',
+    file: 'package/index.js',
     format: 'esm'
   },
   plugins: [
-    typescript(),
-    commonjs({
-      exclude: ['/node_modules/']
-    }),
+
     json(),
     // terser()
   ]

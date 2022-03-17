@@ -1,7 +1,7 @@
 // #!/usr/bin/env node
 import { Command } from 'commander'
 const program = new Command()
-import createAction from '../actions/create.action'
+import createAction from './actions/create.action'
 import pkg from '../package.json'
 
 program.usage('<command>')
